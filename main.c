@@ -17,6 +17,9 @@ int main(){
   FILE* read_piddir;
   dp = opendir ("/proc");
 
+printf("   PID: COMMAND:       STATE:  PPID:                                                                            VMEMORY:");
+printf("\n");
+printf("---------------------------------------------------------------------------------------------------------------------------------\n");
 
   if(dp != NULL){
     while(ep = readdir (dp)){
@@ -37,10 +40,11 @@ int main(){
         if(read_piddir != NULL){
         int temp_count  = 0;
 
+        printf("      ");
         while(1){
           c = fgetc(read_piddir);
           if(c == 32){
-            printf("         ");
+            printf("    ");
             temp_count++;
           }
 
